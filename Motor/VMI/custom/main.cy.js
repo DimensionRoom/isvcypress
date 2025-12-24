@@ -43,7 +43,7 @@ const setENV = () => {
         env == "uat"
         ? "https://insurverse-uat-environment-insure.insurverse.co.th/shopping/car-insurance#car-brand"
         : env == "dev"
-        ? ""
+        ? "https://nextjs-webapp-pi.vercel.app/shopping/car-insurance#car-year"
         : env == "pd"
         ? ""
         : ""
@@ -55,7 +55,7 @@ describe("Insurance Flow with Google Sheets", () => {
         // ดึงข้อมูลจาก API
         cy.request(scriptUrl).then((response) => {
           console.log('response',response)
-            const row = response.body[2]; // ใช้ข้อมูลแถวแรกจาก Sheet
+            const row = response.body[4]; // ใช้ข้อมูลแถวแรกจาก Sheet
 
             const carBrand = row.carBrand || "Honda";
             const carModel = row.carModel || "Accord";
@@ -73,16 +73,16 @@ describe("Insurance Flow with Google Sheets", () => {
            
             // ข้อมูลคนขับ
             const driverList = [
-                // { idCard: '', star: 1, age: 30, title: 'นาย', name: 'คนขับหนึ่ง', lastName: 'สกุลหนึ่ง', licens: '12345678', occupation: occupationLists[0].occupation_name, consent: true },
-                // { idCard: '', star: 1, age: 30, title: 'นาง', name: 'คนขับสอง', lastName: 'สกุลสอง', licens: '87654321', occupation: occupationLists[0].occupation_name, consent: true },
-                // { idCard: '', star: 1, age: 30, title: 'นาย', name: 'คนขับสาม', lastName: 'สกุลสาม', licens: '55555555', occupation: occupationLists[0].occupation_name, consent: true },
-                // { idCard: '', star: 1, age: 30, title: 'นาง', name: 'คนขับสี่', lastName: 'สกุลสี่', licens: '22222222', occupation: occupationLists[0].occupation_name, consent: true },
-                // { idCard: '', star: 1, age: 30, title: 'นาย', name: 'คนขับห้า', lastName: 'สกุลห้า', licens: '11111111', occupation: occupationLists[0].occupation_name, consent: true }
+                { idCard: '', star: 1, age: 30, birthDay:21, birthMonth:11, title: 'นาย', name: 'คนขับหนึ่ง', lastName: 'สกุลหนึ่ง', licens: '12345678', occupation: occupationLists[0].occupation_name, consent: true },
+                { idCard: '', star: 1, age: 30, birthDay:22, birthMonth:11, title: 'นาง', name: 'คนขับสอง', lastName: 'สกุลสอง', licens: '87654321', occupation: occupationLists[1].occupation_name, consent: true },
+                { idCard: '', star: 1, age: 30, birthDay:23, birthMonth:11, title: 'นาย', name: 'คนขับสาม', lastName: 'สกุลสาม', licens: '55555555', occupation: occupationLists[2].occupation_name, consent: true },
+                { idCard: '', star: 1, age: 30, birthDay:24, birthMonth:11, title: 'นาง', name: 'คนขับสี่', lastName: 'สกุลสี่', licens: '22222222', occupation: occupationLists[3].occupation_name, consent: true },
+                { idCard: '', star: 1, age: 30, birthDay:25, birthMonth:11, title: 'นาย', name: 'คนขับห้า', lastName: 'สกุลห้า', licens: '11111111', occupation: occupationLists[4].occupation_name, consent: true }
             ];
 
             const ownerTitle = row.ownerTitle || "นาย";
             const ownerName = row.ownerName || "ทดสอบ";
-            const ownerLastName = row.ownerLastName || "ห้าทดสอบ";
+            const ownerLastName = row.ownerLastName || "คนขับห้า";
             const ownerBirthday = { 
               day: row.ownDay || "", 
               month: row.ownMonth || "", 

@@ -174,10 +174,10 @@ const addDriverData = (driver) => {
       .find(".MuiInputBase-input")
       .type(driver[i].lastName);
     cy.get(`#form-control-dirvers\\.${i}\\.day_birth`).click();
-    cy.get(".MuiMenu-list").get(`li[data-value="${formattedDate}"]`).click();
+    cy.get(".MuiMenu-list").get(`li[data-value="${driver[i].birthDay?driver[i].birthDay:formattedDate}"]`).click();
     cy.get(`#form-control-dirvers\\.${i}\\.month_birth`).click();
     cy.get(".MuiMenu-list")
-      .get(`li[data-value="${date.getMonth() + 1}"]`)
+      .get(`li[data-value="${driver[i].birthMonth?driver[i].birthMonth:date.getMonth() + 1}"]`)
       .click();
     cy.get(`#form-control-dirvers\\.${i}\\.year_birth`).click();
     cy.get(".MuiMenu-list")

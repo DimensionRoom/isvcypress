@@ -74,8 +74,8 @@ const run = async () => {
   step4();
 };
 
-describe("template spec", () => {
-  it("passes", () => {
+describe("Insurance Flow with Google Sheets", () => {
+  it("ดึงข้อมูลจาก Google Sheet และรันกระบวนการซื้อประกัน", () => {
     run();
   });
 });

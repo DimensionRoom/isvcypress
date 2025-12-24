@@ -10,13 +10,13 @@ const addCarData = (
   carBrand,
   carModel,
   carYear,
-  chassisPrefix,
+  chassisNumber,
   carColor,
   carCC,
   carWeight,
   carSeat,
   plateType,
-  platePrefix,
+  plateNumber,
   carProvince,
   effectiveDate
 ) => {
@@ -30,8 +30,8 @@ const addCarData = (
   cy.contains("label", "หมายเลขตัวถัง")
     .next(".MuiStack-root")
     .type(
-      chassisPrefix
-        ? `${chassisPrefix}${formattedHour}${formattedMinute}`
+      chassisNumber
+        ? `${chassisNumber}`
         : `${date.toLocaleDateString(
             "en-GB"
           )}${formattedHour}${formattedMinute}`
@@ -64,8 +64,8 @@ const addCarData = (
   cy.contains("label", "หมายเลขทะเบียนรถ")
     .next(".MuiStack-root")
     .type(
-      chassisPrefix
-        ? `${platePrefix}${formattedHour}${formattedMinute}`
+      plateNumber
+        ? `${plateNumber}`
         : `ทส${formattedHour}${formattedMinute}`
     );
   cy.contains("label", "จังหวัด").next(".MuiFormControl-root").click();
@@ -187,13 +187,13 @@ const step3 = async (
   carBrand,
   carModel,
   carYear,
-  chassisPrefix,
+  chassisNumber,
   carColor,
   carCC,
   carWeight,
   carSeat,
   plateType,
-  platePrefix,
+  plateNumber,
   carProvince,
   ownerTitle,
   ownerName,
@@ -208,13 +208,13 @@ const step3 = async (
     carBrand,
     carModel,
     carYear,
-    chassisPrefix,
+    chassisNumber,
     carColor,
     carCC,
     carWeight,
     carSeat,
     plateType,
-    platePrefix,
+    plateNumber,
     carProvince,
     effectiveDate
   );
