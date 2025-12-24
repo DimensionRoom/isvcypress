@@ -83,7 +83,7 @@ const addCarData = (
   cy.get(".MuiMenu-list")
     .get(
       `li[data-value="${
-        effectiveDate.day ? effectiveDate.day : formattedDate
+        effectiveDate.day ? effectiveDate.day.padStart(2, "0") : formattedDate
       }"]`
     )
     .click();
@@ -96,7 +96,7 @@ const addCarData = (
   cy.get(".MuiMenu-list")
     .get(
       `li[data-value="${
-        effectiveDate.month ? effectiveDate.month : date.getMonth() + 1
+        effectiveDate.month ? effectiveDate.month.padStart(2, "0") : date.getMonth() + 1
       }"]`
     )
     .click();
@@ -109,7 +109,7 @@ const addCarData = (
   cy.get(".MuiMenu-list")
     .get(
       `li[data-value="${
-        effectiveDate.year ? effectiveDate.year : date.getFullYear()
+        effectiveDate.year ? effectiveDate.year.padStart(2, "0") : date.getFullYear()
       }"]`
     )
     .click();
