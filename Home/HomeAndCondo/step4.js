@@ -1,7 +1,7 @@
 const step4 = async () => {
-  cy.contains(/^ยอมรับ$/).click();
-  cy.get('input[name="consent-marketing-0-0"').eq(1).check();
-  cy.get('input[name="consent-marketing-1-0"').eq(1).check();
+  cy.contains(/^ยืนยันการทำประกันภัย$/).click();
+  cy.get('input[name="consent-marketing-0"').eq(1).check();
+  cy.get('input[name="consent-marketing-0"').eq(3).check(); // dev เขียนผิดไม่ควรใช้ชื่อเดียวกัน
   cy.contains(/^ดำเนินการต่อ$/).click();
   cy.contains("button", "ชำระเงิน").click();
   cy.get("#tel-cardNumber").type("5555555555554444");

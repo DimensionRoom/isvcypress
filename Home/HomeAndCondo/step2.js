@@ -31,8 +31,8 @@ const addAddOns = (homeAddOns) =>{
   }
 }
 
-const step2 = (homeFurniture,homeAddOns) => {
-  if (homeFurniture) {
+const step2 = (homeType,homeFurniture,homeAddOns) => {
+  if (homeType == 'บ้าน' && homeFurniture) {
     addFurniture();
   }
   if (homeAddOns.length) {

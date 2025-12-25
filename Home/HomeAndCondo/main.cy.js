@@ -53,7 +53,7 @@ describe("Insurance Flow with Google Sheets", () => {
       setENV();
       cy.config("requestTimeout", 10000);
       step1(homeType, homeProvince);
-      step2(homeFurniture, homeAddOns);
+      step2(homeType, homeFurniture, homeAddOns);
       step3(
         ownerTitle,
         ownerName,
