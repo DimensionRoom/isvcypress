@@ -4,6 +4,8 @@ const date = new Date();
 const hour = date.getHours();
 const minute = date.getMinutes();
 const formattedDate = String(date.getDate()).padStart(2, "0");
+const formattedMonth = String(date.getMonth()+1).padStart(2, "0");
+const formattedYear = String(date.getFullYear()).padStart(2, "0");
 const formattedHour = String(hour).padStart(2, "0");
 const formattedMinute = String(minute).padStart(2, "0");
 
@@ -79,7 +81,7 @@ const addCarData = (
   cy.get(".MuiMenu-list")
     .get(
       `li[data-value="${
-        effectiveDate.month ? effectiveDate.month.padStart(2, "0") : date.getMonth() + 1
+        effectiveDate.month ? effectiveDate.month.padStart(2, "0") : formattedMonth
       }"]`
     )
     .click();
@@ -92,7 +94,7 @@ const addCarData = (
   cy.get(".MuiMenu-list")
     .get(
       `li[data-value="${
-        effectiveDate.year ? effectiveDate.year.padStart(2, "0") : date.getFullYear()
+        effectiveDate.year ? effectiveDate.year.padStart(2, "0") : formattedYear
       }"]`
     )
     .click();
@@ -131,7 +133,7 @@ const addOwnerData = (
     .find("#form-control-month_birth")
     .click();
   cy.get(".MuiMenu-list")
-    .get(`li[data-value="${ownerBirthday.month?ownerBirthday.month.padStart(2, "0"):date.getMonth() + 1}"]`)
+    .get(`li[data-value="${ownerBirthday.month?ownerBirthday.month.padStart(2, "0"):formattedMonth}"]`)
     .click();
   cy.contains("div", "วัน/เดือน/ปี เกิด")
     .next(".MuiStack-root")
@@ -177,7 +179,7 @@ const addDriverData = (driver) => {
     cy.get(".MuiMenu-list").get(`li[data-value="${driver[i].birthDay?driver[i].birthDay:formattedDate}"]`).click();
     cy.get(`#form-control-dirvers\\.${i}\\.month_birth`).click();
     cy.get(".MuiMenu-list")
-      .get(`li[data-value="${driver[i].birthMonth?driver[i].birthMonth:date.getMonth() + 1}"]`)
+      .get(`li[data-value="${driver[i].birthMonth?driver[i].birthMonth:formattedMonth}"]`)
       .click();
     cy.get(`#form-control-dirvers\\.${i}\\.year_birth`).click();
     cy.get(".MuiMenu-list")

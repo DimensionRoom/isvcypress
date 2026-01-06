@@ -55,7 +55,7 @@ describe("Insurance Flow with Google Sheets", () => {
         // ดึงข้อมูลจาก API
         cy.request(scriptUrl).then((response) => {
           console.log('response',response)
-            const row = response.body[4]; // ใช้ข้อมูลแถวแรกจาก Sheet
+            const row = response.body[12]; // ใช้ข้อมูลแถวแรกของbodyจาก Sheet
 
             const carBrand = row.carBrand || "Honda";
             const carModel = row.carModel || "Accord";

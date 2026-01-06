@@ -36,7 +36,7 @@ describe("Insurance Flow with Google Sheets", () => {
   it("ดึงข้อมูลจาก Google Sheet และรันกระบวนการซื้อประกัน", () => {
     // ดึงข้อมูลจาก API
     cy.request(scriptUrl).then((response) => {
-      const row = response.body[0]; // ใช้ข้อมูลแถวแรกจาก Sheet
+      const row = response.body[2]; // ใช้ข้อมูลแถวแรกจาก Sheet
 
       const carType = carTypeToInt(row.carType) || 1;
       //1 = เก๋ง / กระบะ 4 ประตู / รถตู้ไม่เกิน 7 ที่นั่ง

@@ -3,6 +3,8 @@ const date = new Date();
 const hour = date.getHours();
 const minute = date.getMinutes();
 const formattedDate = String(date.getDate()).padStart(2, "0");
+const formattedMonth = String(date.getMonth()+1).padStart(2, "0");
+const formattedYear = String(date.getFullYear()).padStart(2, "0");
 const formattedHour = String(hour).padStart(2, "0");
 const formattedMinute = String(minute).padStart(2, "0");
 const addCarData = (
@@ -96,7 +98,7 @@ const addCarData = (
   cy.get(".MuiMenu-list")
     .get(
       `li[data-value="${
-        effectiveDate.month ? effectiveDate.month.padStart(2, "0") : date.getMonth() + 1
+        effectiveDate.month ? effectiveDate.month.padStart(2, "0") : formattedMonth
       }"]`
     )
     .click();
@@ -109,7 +111,7 @@ const addCarData = (
   cy.get(".MuiMenu-list")
     .get(
       `li[data-value="${
-        effectiveDate.year ? effectiveDate.year.padStart(2, "0") : date.getFullYear()
+        effectiveDate.year ? effectiveDate.year.padStart(2, "0") : formattedYear
       }"]`
     )
     .click();
@@ -147,7 +149,7 @@ const addOwnerData = (
     .find("#form-control-birthMonth")
     .click();
   cy.get(".MuiMenu-list")
-    .get(`li[data-value="${date.getMonth() + 1}"]`)
+    .get(`li[data-value="${formattedMonth}"]`)
     .click();
   cy.contains("div", "วัน/เดือน/ปี เกิด")
     .next(".MuiStack-root")
